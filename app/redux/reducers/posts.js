@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
-import cosmicConfig from '../../config/cosmic';
 
 // Constants
 const INITIALIZE = 'INITIALIZE_POSTS';
@@ -58,15 +57,15 @@ const postSorter = (a, b) => {
 
 // Dispatcher
 export const loadPosts = () => dispatch => {
-  return axios.get(`https://api.cosmicjs.com/v1/${cosmicConfig.bucket.slug}/object-type/posts`)
+  return axios.get(`https://api.cosmicjs.com/v1/345a3160-1ce7-11e9-bcae-971095d5a575/objects?pretty=true&hide_metafields=true&type=posts`)
     .then(res => res.data.objects ? formatPosts(res.data.objects) : [])
     .then(formattedPosts => formattedPosts.sort(postSorter))
     .then(sortedPosts => dispatch(init(sortedPosts)))
-    .catch(err => console.error(`Could not load posts`, err));
+    .catch(err => console.error(`Could not load your word thingies`, err));
 };
 
 export const createPost = post => dispatch => {
-  return axios.post(`https://api.cosmicjs.com/v1/${cosmicConfig.bucket.slug}/add-object`, {
+  return axios.post(`https://api.cosmicjs.com/v1/345a3160-1ce7-11e9-bcae-971095d5a575/objects?pretty=true&hide_metafields=true&type=posts`, {
       title: post.user.username + ' post',
       type_slug: 'posts',
       content: post.content,

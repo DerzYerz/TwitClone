@@ -7,7 +7,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^9.0.0",
     "axios": "^0.18.0",
+    "cosmicjs": "^3.2.14",
     "expo": "^32.0.0",
     "form-data": "^2.2.0",
     "native-base": "2.8.2",
@@ -24,7 +26,6 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@expo/vector-icons": "^5.2.0",
     "babel-preset-expo": "^5.0.0"
   },
   "private": true

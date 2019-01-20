@@ -15,11 +15,18 @@ export default class App extends Component {
 
   async componentWillMount() {
     await Font.loadAsync({
+      'Foundation': require('native-base/Fonts/Foundation.ttf'),
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-      'Pacifico': require('./app/assets/fonts/Pacifico.ttf'),
       'Ionicons': require('native-base/Fonts/Ionicons.ttf'),
     });
+
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+    slug: '345a3160-1ce7-11e9-bcae-971095d5a575'
+  })
+const data = await bucket.getBucket()
 
     this.setState({isReady: true});
   }

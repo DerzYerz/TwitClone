@@ -10,16 +10,25 @@ import {
   Text,
   Form,
   Thumbnail,
-  Icon
 } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 
 import TextField from '../../components/TextField';
 import styles from './styles';
 import { addUser } from '../../redux/reducers/users';
-import cosmicConfig from '../../config/cosmic';
 
 const mapDispatchToProps = {addUser};
+
+async function allowCameraRollAccess() {
+  const { Permissions } = Expo;
+  const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+  if (status !== 'granted') {
+    alert('Yo! Let us use your camera, bro.');
+  }
+}
+
+allowCameraRollAccess();
 
 const validate = form => {
   let errorMessage = '';
@@ -60,7 +69,7 @@ class Signup extends Component {
   }
 
   checkUsername(username){
-    axios.get(`https://api.cosmicjs.com/v1/${cosmicConfig.bucket.slug}/object-type/users/search?metafield_key=username&metafield_value=${username}`)
+    axios.get(`https://api.cosmicjs.com/v1/345a3160-1ce7-11e9-bcae-971095d5a575/objects?pretty=true&hide_metafields=true&type=users`)
     .then(res => res.data)
     .then(data => {
       if (data.objects) {
@@ -72,6 +81,7 @@ class Signup extends Component {
   }
 
   uploadImage = async () => {
+    allowCameraRollAccess();
     let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -110,15 +120,15 @@ class Signup extends Component {
           </Form>
           <Text style={styles.addPic}>Add a profile picture</Text>
           {
-            !this.state.image &&
+           !this.state.image &&
             <Button
               primary
               bordered
               onPress={this.uploadImage}
               style={styles.uploadButton}>
               <Icon
-                ios='ios-camera'
-                android='md-camera'
+                size={30}
+                name='camera'
               />
             </Button>
           }

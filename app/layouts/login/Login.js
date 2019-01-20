@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import {
   Container,
   Content,
-  Icon,
   Text,
   Button,
 } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import TextField from '../../components/TextField';
@@ -68,8 +68,7 @@ class Login extends Component {
           <Text style={styles.formMsg}>{this.state.error}</Text>
           <Icon
             style={styles.icon}
-            ios="ios-happy-outline"
-            android="md-happy"
+            name="rocket"
           />
           <View style={styles.loginBox}>
             <TextField

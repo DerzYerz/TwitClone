@@ -2,10 +2,10 @@ import React from 'react';
 import {
   Container,
   Content,
-  Icon,
   Text,
   Button,
 } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -18,10 +18,9 @@ export default () => (
       <View style={styles.iconBox}>
         <Icon
           style={styles.icon}
-          ios="ios-happy-outline"
-          android="md-happy"
+          name="rocket"
         />
-        <Text style={styles.welcome}>Welcome</Text>
+        <Text style={styles.welcome}>Rokket</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button

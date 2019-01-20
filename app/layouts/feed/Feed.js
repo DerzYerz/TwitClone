@@ -6,10 +6,9 @@ import {
   Content,
   List,
   Button,
-  Icon,
   Text,
 } from 'native-base';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 import SinglePost from '../../components/SinglePost';
 import FeedNavbar from '../../components/FeedNavbar';
 import { loadPosts } from '../../redux/reducers/posts';

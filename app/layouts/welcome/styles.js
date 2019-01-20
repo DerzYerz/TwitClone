@@ -11,7 +11,7 @@ export default {
     fontSize: 96,
   },
   welcome: {
-    fontFamily: 'Pacifico',
+    fontFamily: 'Foundation',
     fontSize: 48,
   },
   buttonContainer: {
@@ -20,7 +20,7 @@ export default {
     alignItems: 'center',
   },
   or: {
-    fontFamily: 'Pacifico',
+    fontFamily: 'Foundation',
   },
   button: {
     margin: 10,
